@@ -14,9 +14,16 @@ Append-only JSONL ledger utilities for agentic systems.
 
 ## Install
 
+Clone the repo and install dependencies:
+
 ```bash
-npm install @else-ventures/agent-ledger
+git clone https://github.com/Else-Ventures/agent-ledger.git
+cd agent-ledger
+npm install
+npm run build
 ```
+
+npm publish coming once v1 is reviewed and stable.
 
 ## What it logs
 
@@ -28,6 +35,7 @@ The package supports exactly four entry types:
 - `LessonEntry`
 
 Each entry is validated before append and stored as one JSON object per line.
+Each schema now includes an explicit `type` discriminator so entries can be parsed unambiguously by both humans and agents.
 
 ## API
 
@@ -46,6 +54,7 @@ import { createLedger } from '@else-ventures/agent-ledger';
 const ledger = createLedger('./logs/agent-run.jsonl');
 
 ledger.log({
+  type: 'decision',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   decision: 'Enter a small paper trade',
@@ -55,6 +64,7 @@ ledger.log({
 });
 
 ledger.log({
+  type: 'skill',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   skill: 'market-signals.snapshot',
@@ -65,6 +75,7 @@ ledger.log({
 });
 
 ledger.log({
+  type: 'position',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   market_id: 'pm-123',
@@ -75,6 +86,7 @@ ledger.log({
 });
 
 ledger.log({
+  type: 'lesson',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   lesson: 'Small inspectable runs beat large speculative rebuilds.',

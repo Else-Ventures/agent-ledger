@@ -10,6 +10,7 @@ rmSync(path, { force: true });
 const ledger = createLedger(path);
 
 ledger.log({
+  type: 'decision',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   decision: 'Take a small paper trade to validate the loop',
@@ -19,6 +20,7 @@ ledger.log({
 });
 
 ledger.log({
+  type: 'skill',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   skill: 'market-signals.orderbook',
@@ -29,6 +31,7 @@ ledger.log({
 });
 
 ledger.log({
+  type: 'position',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   market_id: 'pm-btc-2026-04',
@@ -39,6 +42,7 @@ ledger.log({
 });
 
 ledger.log({
+  type: 'lesson',
   timestamp: new Date().toISOString(),
   agent: 'elsie',
   lesson: 'A tiny complete loop beats a larger incomplete simulation.',

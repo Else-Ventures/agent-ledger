@@ -13,6 +13,7 @@ describe('agent-ledger', () => {
 
     const entries: AnyEntry[] = [
       {
+        type: 'decision',
         timestamp: '2026-04-24T12:00:00Z',
         agent: 'elsie',
         decision: 'Enter thin market with capped size',
@@ -21,6 +22,7 @@ describe('agent-ledger', () => {
         context: { market: 'pm-123' },
       },
       {
+        type: 'skill',
         timestamp: '2026-04-24T12:00:01Z',
         agent: 'elsie',
         skill: 'market-signals.snapshot',
@@ -30,6 +32,7 @@ describe('agent-ledger', () => {
         success: true,
       },
       {
+        type: 'position',
         timestamp: '2026-04-24T12:00:02Z',
         agent: 'elsie',
         market_id: 'pm-123',
@@ -39,6 +42,7 @@ describe('agent-ledger', () => {
         action: 'open',
       },
       {
+        type: 'lesson',
         timestamp: '2026-04-24T12:00:03Z',
         agent: 'elsie',
         lesson: 'Small positions are easier to inspect than dashboard abstractions.',
