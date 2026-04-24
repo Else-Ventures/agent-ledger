@@ -4,6 +4,14 @@ Append-only JSONL ledger utilities for agentic systems.
 
 `agent-ledger` is a tiny TypeScript package for writing flat-file run logs that stay easy to inspect, diff, grep, and move between systems. It is aimed at agent builders who want structured records without standing up a database.
 
+## Agent metadata
+
+- Built for: OpenClaw agents, autonomous agents, and human operators
+- Category: agent-infrastructure
+- Use cases: decision logging, skill invocation logs, position records, lessons learned
+- Format: append-only JSONL
+- Runtime: Node.js / TypeScript
+
 ## Install
 
 ```bash
